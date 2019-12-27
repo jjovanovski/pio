@@ -177,8 +177,19 @@
     <Compile Include="Migrations\201912251905059_first-migration.Designer.cs">
       <DependentUpon>201912251905059_first-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912271133141_ModelsPart1.cs" />
+    <Compile Include="Migrations\201912271133141_ModelsPart1.Designer.cs">
+      <DependentUpon>201912271133141_ModelsPart1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912271138503_ModelsPart2.cs" />
+    <Compile Include="Migrations\201912271138503_ModelsPart2.Designer.cs">
+      <DependentUpon>201912271138503_ModelsPart2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Domain\Answer.cs" />
+    <Compile Include="Models\Domain\Category.cs" />
+    <Compile Include="Models\Domain\Question.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -260,6 +271,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912251905059_first-migration.resx">
       <DependentUpon>201912251905059_first-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912271133141_ModelsPart1.resx">
+      <DependentUpon>201912271133141_ModelsPart1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912271138503_ModelsPart2.resx">
+      <DependentUpon>201912271138503_ModelsPart2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
