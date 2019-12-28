@@ -14,6 +14,8 @@ namespace PIO.Models.Domain
         [StringLength(255, MinimumLength = 8, ErrorMessage = "Answer content must be between 8 and 255 characters long.")]
         public string Content { get; set; }
 
+        public Question Question { get; set; }
+
         public ApplicationUser AnsweredBy { get; set; }
 
         [Required]

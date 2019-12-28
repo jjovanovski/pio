@@ -18,6 +18,8 @@ namespace PIO.Models.Domain
 
         public Category Category { get; set; }
 
+        public ICollection<Answer> Answers { get; set; }
+
         public ApplicationUser AskedBy { get; set; }
 
         [Required]

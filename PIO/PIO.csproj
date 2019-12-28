@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201912271234507_ModelsPart3.Designer.cs">
       <DependentUpon>201912271234507_ModelsPart3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912282233380_ModelsPart4.cs" />
+    <Compile Include="Migrations\201912282233380_ModelsPart4.Designer.cs">
+      <DependentUpon>201912282233380_ModelsPart4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Domain\Answer.cs" />
@@ -197,6 +201,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\IAnswerRepository.cs" />
+    <Compile Include="Repositories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\IQuestionRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -284,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912271234507_ModelsPart3.resx">
       <DependentUpon>201912271234507_ModelsPart3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912282233380_ModelsPart4.resx">
+      <DependentUpon>201912282233380_ModelsPart4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
