@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PIO.App_Start;
+using PIO.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +10,20 @@ namespace PIO.Controllers
 {
     public class HomeController : Controller
     {
+        private IQuestionRepository _questionRepository;
+
+        public HomeController()
+        {
+            _questionRepository = new QuestionRepository();
+        }
+        
+        [PassCategoryTree]
         public ActionResult Index()
         {
             return View();
         }
 
+        [PassCategoryTree]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +31,7 @@ namespace PIO.Controllers
             return View();
         }
 
+        [PassCategoryTree]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

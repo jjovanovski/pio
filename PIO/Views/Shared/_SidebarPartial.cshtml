@@ -1,0 +1,22 @@
+﻿@using PIO.Models.Domain
+
+@helper ShowCategoryTree(ICollection<Category> categories)
+{
+    <ul>
+        @foreach (var category in categories)
+        {
+            <li>
+                @category.Name
+                @if (category.Subcategories != null && category.Subcategories.Any())
+                {
+                    @ShowCategoryTree(category.Subcategories)
+                }
+            </li>
+        }
+    </ul>
+}
+
+@if (ViewBag.CategoryTree != null)
+{
+    @ShowCategoryTree(ViewBag.CategoryTree)
+}
