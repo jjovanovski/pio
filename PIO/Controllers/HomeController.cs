@@ -1,5 +1,7 @@
 ﻿using PIO.App_Start;
 using PIO.Repositories;
+using PIO.Services;
+using PIO.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +14,22 @@ namespace PIO.Controllers
     {
         private IQuestionRepository _questionRepository;
 
+        private QuestionService _questionService;
+
         public HomeController()
         {
             _questionRepository = new QuestionRepository();
+
+            _questionService = new QuestionService(_questionRepository);
         }
         
         [PassCategoryTree]
         public ActionResult Index()
         {
-            return View();
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.LatestQuestions = _questionService.GetLatestQuestions(1, 20);
+            homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions(1, 30);
+            return View(homeViewModel);
         }
 
         [PassCategoryTree]

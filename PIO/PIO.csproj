@@ -207,7 +207,10 @@
     <Compile Include="Repositories\ICategoryRepository.cs" />
     <Compile Include="Repositories\IQuestionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -269,7 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

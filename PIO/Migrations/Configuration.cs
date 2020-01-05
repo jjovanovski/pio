@@ -83,7 +83,7 @@
             questions.AddOrUpdate(new Question()
             {
                 Id = 4,
-                Title = "Како да најдам пресметам на додекахедрон?",
+                Title = "Како да пресметам волумен на додекахедрон?",
                 DateCreated = DateTime.Now,
                 DateLastModified = DateTime.Now,
                 Category = geo,
