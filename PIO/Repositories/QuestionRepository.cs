@@ -21,7 +21,10 @@ namespace PIO.Repositories
         {
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
-            var questions = _context.Questions;
+            var questions = _context.Questions
+                .Include(q => q.Votes)
+                .Include(q => q.AskedBy)
+                .Include(q => q.Category); ;
             var query = (from q in questions
                          orderby q.Id descending
                          select q
@@ -34,10 +37,13 @@ namespace PIO.Repositories
         {
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
-            var questions = _context.Questions;
+            var questions = _context.Questions
+                .Include(q => q.Votes)
+                .Include(q => q.AskedBy)
+                .Include(q => q.Category);
             var query = (from q in questions
-                         where q.Votes.Count == 0
-                         orderby q.Id descending
+                         where q.Answers.Count == 0
+                         orderby q.Votes.Count descending
                          select q
                          ).Skip(numberOfRowsToSkip)
                          .Take(pageSize);
@@ -49,7 +55,10 @@ namespace PIO.Repositories
         {
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
-            var questions = _context.Questions;
+            var questions = _context.Questions
+                .Include(q => q.Votes)
+                .Include(q => q.AskedBy)
+                .Include(q => q.Category); ;
             var query = (from q in questions
                          where q.Answers.Count == 0
                          orderby q.Id descending
@@ -64,7 +73,10 @@ namespace PIO.Repositories
         {
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
-            var questions = _context.Questions;
+            var questions = _context.Questions
+                .Include(q => q.Votes)
+                .Include(q => q.AskedBy)
+                .Include(q => q.Category); ;
             var query = (from q in questions
                          where q.Category.Id == categoryId
                          orderby q.Id descending

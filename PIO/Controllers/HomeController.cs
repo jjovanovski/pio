@@ -27,8 +27,9 @@ namespace PIO.Controllers
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
-            homeViewModel.LatestQuestions = _questionService.GetLatestQuestions(1, 20);
-            homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions(1, 30);
+            homeViewModel.LatestQuestions = _questionService.GetLatestQuestions(1, 3);
+            homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions(1, 3);
+            homeViewModel.PopularUnansweredQuestions = _questionService.GetPopularUnansweredQuestion(1, 3);
             return View(homeViewModel);
         }
 

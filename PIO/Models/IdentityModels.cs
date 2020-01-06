@@ -49,8 +49,8 @@ namespace PIO.Models
                 .WithMany(user => user.QuestionVotes)
                 .Map(cs =>
                 {
-                    cs.MapLeftKey("UserId");
-                    cs.MapRightKey("QuestionId");
+                    cs.MapLeftKey("QuestionId");
+                    cs.MapRightKey("UserId");
                     cs.ToTable("QuestionVotes");
                 });
 
@@ -60,8 +60,8 @@ namespace PIO.Models
                 .WithMany(user => user.AnswerVotes)
                 .Map(cs =>
                 {
-                    cs.MapLeftKey("UserId");
-                    cs.MapRightKey("AnswerId");
+                    cs.MapLeftKey("AnswerId");
+                    cs.MapRightKey("UserId");
                     cs.ToTable("AnswerVotes");
                 });
 

@@ -10,5 +10,6 @@ namespace PIO.ViewModels
     {
         public ICollection<Question> LatestQuestions { get; set; }
         public ICollection<Question> LatestUnansweredQuestions { get; set; }
+        public ICollection<Question> PopularUnansweredQuestions { get; set; }
     }
 }

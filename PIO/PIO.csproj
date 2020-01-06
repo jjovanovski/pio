@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201912282233380_ModelsPart4.Designer.cs">
       <DependentUpon>201912282233380_ModelsPart4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.cs" />
+    <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.Designer.cs">
+      <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Domain\Answer.cs" />
@@ -301,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912282233380_ModelsPart4.resx">
       <DependentUpon>201912282233380_ModelsPart4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001061747208_FixedVoteColumnNames.resx">
+      <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
