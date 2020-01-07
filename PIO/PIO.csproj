@@ -210,7 +210,9 @@
     <Compile Include="Repositories\IAnswerRepository.cs" />
     <Compile Include="Repositories\ICategoryRepository.cs" />
     <Compile Include="Repositories\IQuestionRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Startup.cs" />

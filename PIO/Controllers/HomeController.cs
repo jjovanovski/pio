@@ -13,14 +13,18 @@ namespace PIO.Controllers
     public class HomeController : Controller
     {
         private IQuestionRepository _questionRepository;
+        private ICategoryRepository _categoryRepository;
+        private IUserRepository _userRepository;
 
         private QuestionService _questionService;
 
         public HomeController()
         {
             _questionRepository = new QuestionRepository();
+            _categoryRepository = new CategoryRepository();
+            _userRepository = new UserRepository();
 
-            _questionService = new QuestionService(_questionRepository);
+            _questionService = new QuestionService(_questionRepository, _categoryRepository, _userRepository);
         }
         
         [PassCategoryTree]

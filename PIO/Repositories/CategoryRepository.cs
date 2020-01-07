@@ -26,5 +26,10 @@ namespace PIO.Repositories
                 .Where(c => c.ParentCategory == null).ToList();
             return list;
         }
+
+        public Category GetCategory(int id)
+        {
+            return _context.Categories.SingleOrDefault(c => c.Id == id);
+        }
     }
 }

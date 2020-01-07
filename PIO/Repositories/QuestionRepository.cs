@@ -90,9 +90,26 @@ namespace PIO.Repositories
             return query.ToList();
         }
 
-        public ICollection<Question> GetQuestionsByUserSortedById(int userId, int page, int pageSize)
+        public ICollection<Question> GetQuestionsByUserSortedById(string userId, int page, int pageSize)
         {
             throw new NotImplementedException();
+        }
+
+        public Question InsertQuestion(string title, string description, Category category, ApplicationUser user, DateTime dateCreated)
+        {
+            var question = new Question()
+            {
+                Title = title,
+                Description = description,
+                Category = category,
+                AskedBy = user,
+                DateCreated = dateCreated,
+                DateLastModified = dateCreated
+            };
+
+            var insertedQuestion = _context.Questions.Add(question);
+            _context.SaveChanges();
+            return insertedQuestion;
         }
     }
 }

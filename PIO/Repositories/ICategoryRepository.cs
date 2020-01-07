@@ -9,5 +9,7 @@ namespace PIO.Repositories
     public interface ICategoryRepository
     {
         ICollection<Category> GetCategoryTree();
+
+        Category GetCategory(int id);
     }
 }

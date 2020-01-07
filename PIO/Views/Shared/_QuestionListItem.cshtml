@@ -16,10 +16,12 @@
             @Html.ActionLink(Model.Title, "Question", new { id = Model.Id }, new { @class = "question-list-item-title" })
         </div>
         <div>
-            @if(Model.Answers.Count == 0)
+            @Html.ActionLink(Model.Category.Name, "Details", "Category", new { id = Model.Category.Id }, new { @class = "alert alert-info", style = "padding: 2px" })
+            @if (Model.Answers.Count == 0)
             {
                 <span class="alert alert-danger" style="padding: 2px;">Нема одговори</span>
-            } else
+            }
+            else
             {
                 <span class="alert alert-success" style="padding: 2px;">@Model.Answers.Count одговори</span>
             }
