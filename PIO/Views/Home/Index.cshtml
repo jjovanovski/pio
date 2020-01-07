@@ -12,9 +12,7 @@
     <div class="row">
         @foreach(var q in Model.LatestQuestions)
         {
-            <div class="row">
-                @q.Title, прашано од  @q.AskedBy.UserName и има @q.Votes.Count гласови
-            </div>
+            @Html.Partial("_QuestionListItem", q)
         }
     </div>
 </div>
@@ -24,9 +22,7 @@
     <div class="row">
         @foreach (var q in Model.LatestUnansweredQuestions)
         {
-        <div class="row">
-            @q.Title, прашано од  @q.AskedBy.UserName и има @q.Votes.Count гласови
-        </div>
+            @Html.Partial("_QuestionListItem", q)
         }
     </div>
 </div>
@@ -36,9 +32,7 @@
     <div class="row">
         @foreach (var q in Model.PopularUnansweredQuestions)
         {
-        <div class="row">
-            @q.Title, прашано од  @q.AskedBy.UserName и има @q.Votes.Count гласови
-        </div>
+            @Html.Partial("_QuestionListItem", q)
         }
     </div>
 </div>

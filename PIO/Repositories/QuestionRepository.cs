@@ -22,9 +22,10 @@ namespace PIO.Repositories
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
             var questions = _context.Questions
+                .Include(q => q.Answers)
                 .Include(q => q.Votes)
                 .Include(q => q.AskedBy)
-                .Include(q => q.Category); ;
+                .Include(q => q.Category);
             var query = (from q in questions
                          orderby q.Id descending
                          select q
@@ -38,6 +39,7 @@ namespace PIO.Repositories
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
             var questions = _context.Questions
+                .Include(q => q.Answers)
                 .Include(q => q.Votes)
                 .Include(q => q.AskedBy)
                 .Include(q => q.Category);
@@ -56,6 +58,7 @@ namespace PIO.Repositories
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
             var questions = _context.Questions
+                .Include(q => q.Answers)
                 .Include(q => q.Votes)
                 .Include(q => q.AskedBy)
                 .Include(q => q.Category); ;
@@ -74,6 +77,7 @@ namespace PIO.Repositories
             var numberOfRowsToSkip = (page - 1) * pageSize;
 
             var questions = _context.Questions
+                .Include(q => q.Answers)
                 .Include(q => q.Votes)
                 .Include(q => q.AskedBy)
                 .Include(q => q.Category); ;

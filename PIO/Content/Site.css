@@ -22,3 +22,31 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.question-list-item {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.question-list-item-votes {
+    font-size: 22px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #eee;
+    color: #444;
+    text-align: center;
+    width: 7%;
+    margin-right: 10px;
+}
+
+.question-list-item-title {
+    font-size: 24px;
+}
+
+.question-list-item .btn {
+    padding: 3px;
+    font-size: 12px;
+}
