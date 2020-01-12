@@ -27,7 +27,6 @@ namespace PIO.Controllers
             _questionService = new QuestionService(_questionRepository, _categoryRepository, _userRepository);
         }
         
-        [PassCategoryTree]
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
@@ -37,7 +36,6 @@ namespace PIO.Controllers
             return View(homeViewModel);
         }
 
-        [PassCategoryTree]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -45,7 +43,6 @@ namespace PIO.Controllers
             return View();
         }
 
-        [PassCategoryTree]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
