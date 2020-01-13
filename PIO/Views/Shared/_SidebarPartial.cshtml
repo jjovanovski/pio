@@ -1,5 +1,8 @@
 ﻿@using PIO.Models.Domain
 
+<br />
+@Html.ActionLink("Постави прашање", "Add", "Question", null, new { @class = "btn btn-success", style="width: 100%" })
+
 <h3>Категории</h3>
 @helper ShowCategoryTree(ICollection<Category> categories)
 {

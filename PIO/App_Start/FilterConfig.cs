@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using PIO.App_Start;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PIO
@@ -8,6 +9,7 @@ namespace PIO
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new PassCategoryTree());
         }
     }
 }
