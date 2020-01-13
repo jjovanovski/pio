@@ -28,15 +28,11 @@ namespace PIO.Controllers
 			_answerRepository = new AnswerRepository();
 
             _questionService = new QuestionService(_questionRepository, _categoryRepository, _userRepository);
-<<<<<<< HEAD
 			_answerService = new AnswerService(_answerRepository, _questionRepository,_userRepository);
 		}
 
-		[PassCategoryTree]
-=======
-        }
         
->>>>>>> da1058982966ac41d8011536acab2765d0ea34e6
+
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();

@@ -114,7 +114,7 @@ namespace PIO.Repositories
 		public Question GetQuestion(int questionId)
 		{
 			var questions = _context.Questions
-				 .Include(q => q.Answers)
+				.Include(q => q.Answers)
 				.Include(q => q.Votes)
 				.Include(q => q.AskedBy)
 				.Include(q => q.Category); ;
