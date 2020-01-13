@@ -1,0 +1,22 @@
+﻿@using PIO.Models.Domain
+@model Answer
+
+<div class="row align-items-center question-list-item">
+    <div class="col-sm-2 text-center question-list-item-votes">
+        <div>
+            @Model.Votes.Count
+        </div>
+        <button class="btn btn-primary">Глас +</button>
+    </div>
+    <div class="col-sm-10" style="padding: 0">
+        <div style="font-size: 11px">
+            @Html.ActionLink(Model.AnsweredBy.UserName, "User", new { id = Model.AnsweredBy.Id }) одговара:
+        </div>
+        <div>
+            @Html.ActionLink(Model.Content, "answer", new { id = Model.Id }, new { @class = "answer-list-item-content" })
+        </div>
+        <div>
+            <span style="font-size: 11px; margin-left: 10px;">@Model.DateCreated</span>
+        </div>
+    </div>
+</div>

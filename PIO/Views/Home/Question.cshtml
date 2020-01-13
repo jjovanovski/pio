@@ -1,0 +1,29 @@
+﻿@using PIO.Models
+@using PIO.ViewModels
+
+@model QuestionsViewModel
+
+@{
+    ViewBag.Title = "Questions page";
+}
+
+<div class="row">
+    <h3>Прашање:</h3>
+    <div class="row">
+        @{
+            var q = Model.question;
+            @Html.Partial("_QuestionListItem", q);
+        }
+    </div>
+</div>
+
+<div class="row">
+    <h3>Одговори:</h3>
+    <div class="row">
+        @foreach (var a in Model.PopularAnswers)
+        {
+            @Html.Partial("_AnswerListItem", a)
+        }
+    </div>
+</div>
+

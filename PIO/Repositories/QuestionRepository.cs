@@ -111,5 +111,19 @@ namespace PIO.Repositories
             _context.SaveChanges();
             return insertedQuestion;
         }
-    }
+		public Question GetQuestion(int questionId)
+		{
+			var questions = _context.Questions
+				 .Include(q => q.Answers)
+				.Include(q => q.Votes)
+				.Include(q => q.AskedBy)
+				.Include(q => q.Category); ;
+			var query = (from q in questions
+						 where q.Category.Id == questionId
+						 select q
+						 );
+
+			return questions.SingleOrDefault(q => q.Id == questionId);
+		}
+	}
 }

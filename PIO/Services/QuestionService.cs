@@ -80,5 +80,15 @@ namespace PIO.Services
 
             return _questionRepository.InsertQuestion(title, description, category, user, dateCreated);
         }
-    }
+
+		public Question GetQuestion(int questionId)
+		{
+			var question = _questionRepository.GetQuestion(questionId);
+			if (question == null)
+			{
+				throw new ArgumentException("Question doesn't exist");
+			}
+			return question;
+		}
+	}
 }

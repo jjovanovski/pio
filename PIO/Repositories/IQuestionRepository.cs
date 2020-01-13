@@ -20,5 +20,7 @@ namespace PIO.Repositories
         ICollection<Question> GetQuestionsByUserSortedById(string userId, int page, int pageSize);
 
         Question InsertQuestion(string title, string description, Category category, ApplicationUser user, DateTime dateCreated);
-    }
+
+		Question GetQuestion(int questionId);
+	}
 }
