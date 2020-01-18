@@ -1,4 +1,5 @@
-﻿using PIO.Services;
+﻿using PIO.Repositories;
+using PIO.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace PIO.App_Start
     public class PassCategoryTree : ActionFilterAttribute
     {
         private CategoryService _categoryService;
+		private ICategoryRepository _categoryRepository;
 
-        public PassCategoryTree()
+		public PassCategoryTree()
         {
-            _categoryService = new CategoryService();
+			_categoryRepository = new CategoryRepository();
+            _categoryService = new CategoryService(_categoryRepository);
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)

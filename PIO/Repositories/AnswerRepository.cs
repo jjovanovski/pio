@@ -40,5 +40,21 @@ namespace PIO.Repositories
 		{
 			throw new NotImplementedException();
 		}
+
+		public Answer InsertAnswer(string content, Question question, ApplicationUser user, DateTime dateCreated)
+		{
+			var answer = new Answer()
+			{
+				Content = content,
+				Question = question,
+				AnsweredBy = user,
+				DateCreated = dateCreated,
+				DateLastModified = dateCreated
+			};
+
+			var insertedAnswer = _context.Answers.Add(answer);
+			_context.SaveChanges();
+			return insertedAnswer;
+		}
 	}
 }

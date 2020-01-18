@@ -31,5 +31,21 @@ namespace PIO.Services
 			return _answerRepository.GetAnswersByQuestionSortedByVoteCount(questionId, page, pageSize);
 		}
 
+		public Answer AddAnswer(string content, int questionId, string userId, DateTime dateCreated)
+		{
+			var question = _questionRepository.GetQuestion(questionId);
+			if (question == null)
+			{
+				throw new ArgumentException("Question doesn't exist");
+			}
+
+			var user = _userRepository.GetUser(userId);
+			if (user == null)
+			{
+				throw new ArgumentException("User doesn't exist");
+			}
+
+			return _answerRepository.InsertAnswer(content, question, user, dateCreated);
+		}
 	}
 }

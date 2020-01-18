@@ -11,7 +11,7 @@
     <h3>Прашање:</h3>
     <div class="row">
         @{
-            var q = Model.question;
+            var q = Model.Question;
             @Html.Partial("_QuestionListItem", q);
         }
     </div>
@@ -25,5 +25,9 @@
             @Html.Partial("_AnswerListItem", a)
         }
     </div>
+</div>
+
+<div class="row">
+    @Html.ActionLink("Додади одговор", "Add", "Answer", new { id = Model.Question.Id }, new { @class = "btn btn-success", style = "width: 200px" })
 </div>
 

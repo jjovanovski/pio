@@ -13,7 +13,7 @@
             @Html.ActionLink(Model.AskedBy.UserName, "User", new { id = Model.AskedBy.Id }) прашува:
         </div>
         <div>
-            @Html.ActionLink(Model.Title, "Question", new { id = Model.Id }, new { @class = "question-list-item-title" })
+            @Html.ActionLink(Model.Title,"Index", "Question", new { id = Model.Id }, new { @class = "question-list-item-title" })
         </div>
         <div>
             @Html.ActionLink(Model.Category.Name, "Details", "Category", new { id = Model.Category.Id }, new { @class = "alert alert-info", style = "padding: 2px" })

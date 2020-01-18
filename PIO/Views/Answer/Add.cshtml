@@ -1,0 +1,25 @@
+﻿@using PIO.Models.Domain
+@using Microsoft.AspNet.Identity
+
+@model Answer
+
+
+@using (Html.BeginForm("Add", "Answer", FormMethod.Post))
+{
+    <div class="row" style="margin-top:10px">
+        <div class="form-horizontal">
+            <div class="form-group col-md-10">
+                @Html.LabelFor(m => m.Content, "Одговор:")
+                @Html.TextAreaFor(m => m.Content, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group col-md-10">
+                @Html.LabelFor(m => m.AnsweredBy, User.Identity.GetUserName())
+            </div>
+            <div class="form-group col-md-10">
+                <span>@DateTime.Now</span>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Одговори</button>
+
+}

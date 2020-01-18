@@ -8,7 +8,7 @@ namespace PIO.ViewModels
 {
 	public class QuestionsViewModel
 	{
-		public Question question { get; set; }
+		public Question Question { get; set; }
 		public ICollection<Answer> PopularAnswers { get; set; }
 	}
 }
