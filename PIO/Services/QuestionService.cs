@@ -64,6 +64,20 @@ namespace PIO.Services
             return _questionRepository.GetUnansweredQuestionsSortedByVoteCount(page, pageSize);
         }
 
+        public ICollection<Question> GetLatestQuestionsByCategoryId(int categoryId, int page, int pageSize)
+        {
+            if (page <= 0)
+            {
+                throw new ArgumentException("Parameter 'page' must be a positive integer");
+            }
+            if (pageSize <= 0)
+            {
+                throw new ArgumentException("Parameter 'page' must be a positive integer");
+            }
+
+            return _questionRepository.GetQuestionsByCategorySortedById(categoryId, page, pageSize);
+        }
+
         public Question AddQuestion(string title, string description, int categoryId, string userId, DateTime dateCreated)
         {
             var category = _categoryRepository.GetCategory(categoryId);

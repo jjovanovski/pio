@@ -31,23 +31,5 @@ namespace PIO.Repositories
         {
             return _context.Categories.SingleOrDefault(c => c.Id == id);
         }
-
-		public ICollection<Question> GetQuestionsSortedById(int categoryId,int page, int pageSize)
-		{
-			var numberOfRowsToSkip = (page - 1) * pageSize;
-			
-			var questions = _context.Questions
-				.Include(q => q.Answers)
-				.Include(q => q.Votes)
-				.Include(q => q.AskedBy)
-				.Include(q => q.Category);
-			var query = (from q in questions
-						 where q.Category.Id == categoryId
-						 orderby q.Id descending
-						 select q
-						).Skip(numberOfRowsToSkip)
-						.Take(pageSize);
-			return query.ToList();
-		}
 	}
 }

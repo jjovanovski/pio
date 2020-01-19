@@ -11,15 +11,19 @@ namespace PIO.Controllers
 {
     public class CategoryController : Controller
     {
+        private IQuestionRepository _questionRepository;
 		private ICategoryRepository _categoryRepository;
+        private IUserRepository _userRepository;
 		
-		private CategoryService _categoryService;
+        private QuestionService _questionService;
 
 		public CategoryController()
 		{
+            _questionRepository = new QuestionRepository();
 			_categoryRepository = new CategoryRepository();
+            _userRepository = new UserRepository();
 
-			_categoryService = new CategoryService(_categoryRepository);
+            _questionService = new QuestionService(_questionRepository, _categoryRepository, _userRepository);
 		}
       
 
@@ -32,7 +36,7 @@ namespace PIO.Controllers
 		public ActionResult Details(int id)
 		{
 			var categoryViewModel = new CategoryViewModel();
-			categoryViewModel.Questions = _categoryRepository.GetQuestionsSortedById(id, 1, 3);
+            categoryViewModel.Questions = _questionService.GetLatestQuestionsByCategoryId(id, 1, 10);
 			return View(categoryViewModel);
 		}
 

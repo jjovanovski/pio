@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.Designer.cs">
       <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001141342276_AnswerIdColumn.cs" />
+    <Compile Include="Migrations\202001141342276_AnswerIdColumn.Designer.cs">
+      <DependentUpon>202001141342276_AnswerIdColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Domain\Answer.cs" />
@@ -285,6 +289,9 @@
     <Content Include="Views\Shared\_QuestionListItem.cshtml" />
     <Content Include="Views\Home\Question.cshtml" />
     <Content Include="Views\Shared\_AnswerListItem.cshtml" />
+    <Content Include="Views\Answer\Add.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
