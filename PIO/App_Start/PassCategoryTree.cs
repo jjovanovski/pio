@@ -11,12 +11,10 @@ namespace PIO.App_Start
     public class PassCategoryTree : ActionFilterAttribute
     {
         private CategoryService _categoryService;
-		private ICategoryRepository _categoryRepository;
 
 		public PassCategoryTree()
         {
-			_categoryRepository = new CategoryRepository();
-            _categoryService = new CategoryService(_categoryRepository);
+            _categoryService = Container.CategoryService;
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)

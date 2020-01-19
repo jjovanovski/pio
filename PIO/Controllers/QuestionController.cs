@@ -12,23 +12,13 @@ namespace PIO.Controllers
 {
     public class QuestionController : Controller
     {
-		private IQuestionRepository _questionRepository;
-		private ICategoryRepository _categoryRepository;
-		private IUserRepository _userRepository;
-		private IAnswerRepository _answerRepository;
-
 		private QuestionService _questionService;
 		private AnswerService _answerService;
 
 		public QuestionController()
 		{
-			_questionRepository = new QuestionRepository();
-			_categoryRepository = new CategoryRepository();
-			_userRepository = new UserRepository();
-			_answerRepository = new AnswerRepository();
-
-			_questionService = new QuestionService(_questionRepository, _categoryRepository, _userRepository);
-			_answerService = new AnswerService(_answerRepository, _questionRepository, _userRepository);
+			_questionService = Container.QuestionService;
+			_answerService = Container.AnswerService;
 		}
 
 		// GET: Question

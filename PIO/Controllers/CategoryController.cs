@@ -10,20 +10,12 @@ using System.Web.Mvc;
 namespace PIO.Controllers
 {
     public class CategoryController : Controller
-    {
-        private IQuestionRepository _questionRepository;
-		private ICategoryRepository _categoryRepository;
-        private IUserRepository _userRepository;
-		
+    {		
         private QuestionService _questionService;
 
 		public CategoryController()
 		{
-            _questionRepository = new QuestionRepository();
-			_categoryRepository = new CategoryRepository();
-            _userRepository = new UserRepository();
-
-            _questionService = new QuestionService(_questionRepository, _categoryRepository, _userRepository);
+            _questionService = Container.QuestionService;
 		}
       
 

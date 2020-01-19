@@ -12,9 +12,9 @@ namespace PIO.Repositories
     {
         private ApplicationDbContext _context;
 
-        public CategoryRepository()
+        public CategoryRepository(ApplicationDbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
         }
 
         public ICollection<Category> GetCategoryTree()
