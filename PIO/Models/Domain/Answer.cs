@@ -8,7 +8,6 @@ namespace PIO.Models.Domain
 {
     public class Answer
     {
-		[Key]
         public int Id { get; set; }
 
         [Required]
