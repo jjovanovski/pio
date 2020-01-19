@@ -20,20 +20,5 @@ namespace PIO.Services
         {
             return _categoryRepository.GetCategoryTree();
         }
-		
-		public ICollection<Question> GetQuestions(int categoryId,int page, int pageSize)
-		{
-			if (page <= 0)
-			{
-				throw new ArgumentException("Parameter 'page' must be a positive integer");
-			}
-			if (pageSize <= 0)
-			{
-				throw new ArgumentException("Parameter 'page' must be a positive integer");
-			}
-
-			return _categoryRepository.GetQuestionsSortedById(categoryId,page, pageSize);
-		}
-
     }
 }
