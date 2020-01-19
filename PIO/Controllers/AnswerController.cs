@@ -12,35 +12,25 @@ namespace PIO.Controllers
 {
     public class AnswerController : Controller
     {
-		private IQuestionRepository _questionRepository;
-		private IUserRepository _userRepository;
-		private IAnswerRepository _answerRepository;
-
 		private AnswerService _answerService;
 
 		public AnswerController()
 		{
-			_questionRepository = new QuestionRepository();
-			_userRepository = new UserRepository();
-			_answerRepository = new AnswerRepository();
-
-			_answerService = new AnswerService(_answerRepository, _questionRepository, _userRepository);
+			_answerService = Container.AnswerService;
 		}
 		
-
 		public ActionResult Add()
         {
             return View();
         }
-
-
+        
 		[HttpPost]
-		public ActionResult Add(Answer answer,int id)
+		public ActionResult Add(Answer answer, int id)
 		{
 			int questionId = id;
 
 			_answerService.AddAnswer(answer.Content, questionId, User.Identity.GetUserId(), DateTime.Now);
-			return RedirectToAction("Index", "Question");
+			return RedirectToAction("Index", "Question", new { id = questionId });
 	
 		}
 	}
