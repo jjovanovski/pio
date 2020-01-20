@@ -10,16 +10,12 @@ using System.Web.Mvc;
 namespace PIO.Controllers
 {
     public class CategoryController : Controller
-    {
-		private ICategoryRepository _categoryRepository;
-		
-		private CategoryService _categoryService;
+    {		
+        private QuestionService _questionService;
 
 		public CategoryController()
 		{
-			_categoryRepository = new CategoryRepository();
-
-			_categoryService = new CategoryService(_categoryRepository);
+            _questionService = Container.QuestionService;
 		}
       
 
@@ -32,7 +28,7 @@ namespace PIO.Controllers
 		public ActionResult Details(int id)
 		{
 			var categoryViewModel = new CategoryViewModel();
-			categoryViewModel.Questions = _categoryRepository.GetQuestionsSortedById(id, 1, 3);
+            categoryViewModel.Questions = _questionService.GetLatestQuestionsByCategoryId(id, 1, 10);
 			return View(categoryViewModel);
 		}
 

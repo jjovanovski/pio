@@ -12,9 +12,9 @@ namespace PIO.Repositories
     {
         private ApplicationDbContext _context;
 
-        public QuestionRepository()
+        public QuestionRepository(ApplicationDbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
         }
 
         public ICollection<Question> GetQuestionsSortedById(int page, int pageSize)

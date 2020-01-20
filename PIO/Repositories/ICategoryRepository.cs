@@ -11,8 +11,5 @@ namespace PIO.Repositories
         ICollection<Category> GetCategoryTree();
 
         Category GetCategory(int id);
-
-		ICollection<Question> GetQuestionsSortedById(int categoryId, int page, int pageSize);
-
 	}
 }

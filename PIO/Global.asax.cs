@@ -13,6 +13,7 @@ namespace PIO
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            Container.Init();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

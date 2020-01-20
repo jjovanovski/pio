@@ -12,8 +12,7 @@ namespace PIO.Services
 		private IAnswerRepository _answerRepository;
 		private IQuestionRepository _questionRepository;
 		private IUserRepository _userRepository;
-
-
+        
 		public AnswerService(IAnswerRepository answerRepository, IQuestionRepository questionRepository, IUserRepository userRepository)
 		{
 			_answerRepository = answerRepository;

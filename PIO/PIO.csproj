@@ -168,9 +168,13 @@
     <Compile Include="App_Start\PassCategoryTree.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnswerController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,6 +202,10 @@
     <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.Designer.cs">
       <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001141342276_AnswerIdColumn.cs" />
+    <Compile Include="Migrations\202001141342276_AnswerIdColumn.Designer.cs">
+      <DependentUpon>202001141342276_AnswerIdColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Domain\Answer.cs" />
@@ -218,6 +226,7 @@
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\QuestionsViewModel.cs" />
   </ItemGroup>
@@ -281,6 +290,9 @@
     <Content Include="Views\Shared\_QuestionListItem.cshtml" />
     <Content Include="Views\Home\Question.cshtml" />
     <Content Include="Views\Shared\_AnswerListItem.cshtml" />
+    <Content Include="Views\Answer\Add.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

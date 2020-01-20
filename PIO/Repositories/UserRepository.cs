@@ -10,9 +10,9 @@ namespace PIO.Repositories
     {
         private ApplicationDbContext _context;
 
-        public UserRepository()
+        public UserRepository(ApplicationDbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
         }
 
         public ApplicationUser GetUser(string userId)
