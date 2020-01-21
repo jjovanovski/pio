@@ -10,10 +10,10 @@
     </div>
     <div class="col-sm-10" style="padding: 0">
         <div style="font-size: 11px">
-            @Html.ActionLink(Model.AskedBy.UserName, "User", new { id = Model.AskedBy.Id }) прашува:
+            @Html.ActionLink(Model.AskedBy.UserName, "Details","User", new { id = Model.AskedBy.Id }, null) прашува:
         </div>
         <div>
-            @Html.ActionLink(Model.Title,"Index", "Question", new { id = Model.Id }, new { @class = "question-list-item-title" })
+            @Html.ActionLink(Model.Title, "Index", "Question", new { id = Model.Id }, new { @class = "question-list-item-title" })
         </div>
         <div>
             @Html.ActionLink(Model.Category.Name, "Details", "Category", new { id = Model.Category.Id }, new { @class = "alert alert-info", style = "padding: 2px" })

@@ -92,7 +92,21 @@ namespace PIO.Repositories
 
         public ICollection<Question> GetQuestionsByUserSortedById(string userId, int page, int pageSize)
         {
-            throw new NotImplementedException();
+            var numberOfRowsToSkip = (page - 1) * pageSize;
+
+            var questions = _context.Questions
+                .Include(q => q.Answers)
+                .Include(q => q.Votes)
+                .Include(q => q.AskedBy)
+                .Include(q => q.Category); ;
+            var query = (from q in questions
+                         where q.AskedBy.Id == userId
+                         orderby q.Id descending
+                         select q
+                         ).Skip(numberOfRowsToSkip)
+                         .Take(pageSize);
+            return query.ToList();
+
         }
 
         public Question InsertQuestion(string title, string description, Category category, ApplicationUser user, DateTime dateCreated)

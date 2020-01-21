@@ -1,4 +1,6 @@
-﻿using PIO.Repositories;
+﻿using Microsoft.AspNet.Identity;
+using PIO.Models.Domain;
+using PIO.Repositories;
 using PIO.Services;
 using PIO.ViewModels;
 using System;
@@ -13,12 +15,14 @@ namespace PIO.Controllers
     public class QuestionController : Controller
     {
 		private QuestionService _questionService;
-		private AnswerService _answerService;
+        private AnswerService _answerService;
+        private CategoryService _categoryService;
 
 		public QuestionController()
 		{
 			_questionService = Container.QuestionService;
 			_answerService = Container.AnswerService;
+            _categoryService = Container.CategoryService;
 		}
 
 		// GET: Question
@@ -30,6 +34,23 @@ namespace PIO.Controllers
 
 			return View(questionsViewModel);
 		}
-	
+
+        public ActionResult Add()
+        {
+            var addQuestionViewModel = new AddQuestionViewModel
+            {
+                Categories = _categoryService.GetCategoryTree()
+            };
+
+            return View(addQuestionViewModel);
+        }
+        [HttpPost]
+        public ActionResult Add(Question question)
+        { 
+            _questionService.AddQuestion(question.Title, question.Description, question.Category.Id, User.Identity.GetUserId(), DateTime.Now);
+            return RedirectToAction("Index", "Question", new { id = question.Category.Id });
+
+        }
+
     }
 }

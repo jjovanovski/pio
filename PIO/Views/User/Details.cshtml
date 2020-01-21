@@ -1,0 +1,11 @@
+﻿@using PIO.ViewModels
+@model QuestionUserViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+@foreach(var q in Model.Questions)
+{
+    <h1>@q.Title</h1>
+    <h1>@q.Votes.Count</h1>
+}

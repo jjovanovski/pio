@@ -104,5 +104,19 @@ namespace PIO.Services
 			}
 			return question;
 		}
-	}
+
+        public ICollection<Question> GetQuestionsByUser(string userId, int page, int pageSize)
+        {
+            if (page <= 0)
+            {
+                throw new ArgumentException("Parameter 'page' must be a positive integer");
+            }
+            if (pageSize <= 0)
+            {
+                throw new ArgumentException("Parameter 'page' must be a positive integer");
+            }
+
+            return _questionRepository.GetQuestionsByUserSortedById(userId, page, pageSize);
+        }
+    }
 }
