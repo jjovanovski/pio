@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,9 +227,11 @@
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddQuestionViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\QuestionsViewModel.cs" />
+    <Compile Include="ViewModels\QuestionUserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -293,6 +296,8 @@
     <Content Include="Views\Answer\Add.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Question\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\Question\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
