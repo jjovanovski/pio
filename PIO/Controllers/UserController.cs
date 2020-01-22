@@ -12,10 +12,14 @@ namespace PIO.Controllers
     public class UserController : Controller
     {
         private QuestionService _questionService;
+        private AnswerService _answerService;
+        private UserService _userService;
 
         public UserController()
         {
             _questionService = Container.QuestionService;
+            _answerService = Container.AnswerService;
+            _userService = Container.UserService;
            
         }
         // GET: User
@@ -27,10 +31,14 @@ namespace PIO.Controllers
 
         {
             var questions = _questionService.GetQuestionsByUser(id, 1, 10);
+            var answers = _answerService.GetAnswersByUser(id, 1, 10);
+            var user = _userService.GetUser(id);
 
             var questionUserViewModel = new QuestionUserViewModel()
             {
-                Questions = questions
+                Questions = questions,
+                Answers = answers,
+                User = user
             };
 
             return View(questionUserViewModel);

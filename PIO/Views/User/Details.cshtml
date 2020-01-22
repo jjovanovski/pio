@@ -3,9 +3,53 @@
 @{
     ViewBag.Title = "Details";
 }
+    <div class="container col-md-10">
+        <div class="row">
+            <h3> <i> @Model.User.UserName </i></h3>
+            <h3> Најпопуларни прашања поставени од корисникот(@Model.Questions.Count)</h3>
+            <table class="table table-striped">
+                <tbody>
+                    @foreach (var q in Model.Questions)
+                    {
+                        <tr>
+                            <td width="500px">
+                                @Html.ActionLink(@q.Title, "Index", "Question", new { id = q.Id }, null)
 
-@foreach(var q in Model.Questions)
-{
-    <h1>@q.Title</h1>
-    <h1>@q.Votes.Count</h1>
-}
+                            </td>
+                            <td>
+                                <span class="alert alert-success" style="padding: 2px;">@q.Votes.Count</span>
+                            </td>
+                            <td>
+                                @q.DateCreated.Date.ToShortDateString()
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <h3> Најпопуларни одговори дадени од корисникот (@Model.Answers.Count)</h3>
+            <table class="table table-striped">
+                <tbody>
+                    @foreach (var a in Model.Answers)
+                    {
+                        <tr>
+                            <td width="500px">
+                                @Html.ActionLink(@a.Content, "Index", "Question", new { id = a.Question.Id }, null)
+
+                            </td>
+                            <td>
+                                <span class="alert alert-success" style="padding: 2px;">@a.Votes.Count</span>
+                            </td>
+                            <td>
+                                @a.DateCreated.ToShortDateString()
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+

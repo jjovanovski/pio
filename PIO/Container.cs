@@ -20,6 +20,7 @@ namespace PIO
         public static QuestionService QuestionService { get; set; }
         public static AnswerService AnswerService { get; set; }
         public static CategoryService CategoryService { get; set; }
+        public static UserService UserService { get; set; }
 
         public static void Init()
         {
@@ -33,6 +34,7 @@ namespace PIO
             QuestionService = new QuestionService(QuestionRepository, CategoryRepository, UserRepository);
             AnswerService = new AnswerService(AnswerRepository, QuestionRepository, UserRepository);
             CategoryService = new CategoryService(CategoryRepository);
+            UserService = new UserService(UserRepository);
         }
     }
 }
