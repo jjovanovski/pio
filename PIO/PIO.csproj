@@ -226,6 +226,7 @@
     <Compile Include="Services\AnswerService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\QuestionService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddQuestionViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
