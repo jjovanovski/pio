@@ -35,6 +35,7 @@ namespace PIO.Controllers
 			return View(questionsViewModel);
 		}
 
+        [Authorize]
         public ActionResult Add()
         {
             var addQuestionViewModel = new AddQuestionViewModel
@@ -44,7 +45,9 @@ namespace PIO.Controllers
 
             return View(addQuestionViewModel);
         }
+
         [HttpPost]
+        [Authorize]
         public ActionResult Add(Question question)
         { 
             _questionService.AddQuestion(question.Title, question.Description, question.Category.Id, User.Identity.GetUserId(), DateTime.Now);
