@@ -20,5 +20,9 @@ namespace PIO.Services
         {
             return _categoryRepository.GetCategoryTree();
         }
+        public ICollection<Category> GetAllCategories()
+        {
+            return _categoryRepository.GetAllCategories();
+        }
     }
 }

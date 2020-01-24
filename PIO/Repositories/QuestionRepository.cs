@@ -101,7 +101,7 @@ namespace PIO.Repositories
                 .Include(q => q.Category); ;
             var query = (from q in questions
                          where q.AskedBy.Id == userId
-                         orderby q.Id descending
+                         orderby q.Votes.Count descending
                          select q
                          ).Skip(numberOfRowsToSkip)
                          .Take(pageSize);

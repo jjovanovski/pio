@@ -39,7 +39,7 @@ namespace PIO.Controllers
         {
             var addQuestionViewModel = new AddQuestionViewModel
             {
-                Categories = _categoryService.GetCategoryTree()
+                Categories = _categoryService.GetAllCategories()
             };
 
             return View(addQuestionViewModel);
@@ -48,7 +48,7 @@ namespace PIO.Controllers
         public ActionResult Add(Question question)
         { 
             _questionService.AddQuestion(question.Title, question.Description, question.Category.Id, User.Identity.GetUserId(), DateTime.Now);
-            return RedirectToAction("Index", "Question", new { id = question.Category.Id });
+            return RedirectToAction("Index", "Home");
 
         }
 

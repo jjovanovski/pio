@@ -36,12 +36,25 @@ namespace PIO.Repositories
 
 		}
 
-		public ICollection<Answer> GetAnswersByUserSortedById(int userId, int page, int pageSize)
+		public ICollection<Answer> GetAnswersByUserSortedById(string userId, int page, int pageSize)
 		{
-			throw new NotImplementedException();
+			var numberOfRowsToSkip = (page - 1) * pageSize;
+
+			var answers = _context.Answers
+				.Include(a => a.Question)
+				.Include(a => a.AnsweredBy)
+				.Include(a => a.Votes); ;
+			var query = (from a in answers
+						 where a.AnsweredBy.Id == userId
+						 orderby a.Votes.Count descending
+						 select a
+						 ).Skip(numberOfRowsToSkip)
+						 .Take(pageSize);
+			return query.ToList();
 		}
 
-		public Answer InsertAnswer(string content, Question question, ApplicationUser user, DateTime dateCreated)
+
+        public Answer InsertAnswer(string content, Question question, ApplicationUser user, DateTime dateCreated)
 		{
 			var answer = new Answer()
 			{

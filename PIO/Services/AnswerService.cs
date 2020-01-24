@@ -30,6 +30,16 @@ namespace PIO.Services
 			return _answerRepository.GetAnswersByQuestionSortedByVoteCount(questionId, page, pageSize);
 		}
 
+        public ICollection<Answer> GetAnswersByUser(string userId, int page, int pageSize)
+        {
+            var user = _userRepository.GetUser(userId);
+            if (user == null)
+            {
+                throw new ArgumentException("User doesn't exist");
+            }
+            return _answerRepository.GetAnswersByUserSortedById(userId, page, pageSize);
+        }
+
 		public Answer AddAnswer(string content, int questionId, string userId, DateTime dateCreated)
 		{
 			var question = _questionRepository.GetQuestion(questionId);
