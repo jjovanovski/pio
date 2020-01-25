@@ -10,7 +10,7 @@
     </div>
     <div class="col-sm-10" style="padding: 0">
         <div style="font-size: 11px">
-            @Html.ActionLink(Model.AskedBy.UserName, "Details","User", new { id = Model.AskedBy.Id }, null) прашува:
+                @Html.ActionLink(Model.AskedBy.UserName, "Details","User", new { id = Model.AskedBy.Id }, null) прашува:
         </div>
         <div>
             @Html.ActionLink(Model.Title, "Index", "Question", new { id = Model.Id }, new { @class = "question-list-item-title" })

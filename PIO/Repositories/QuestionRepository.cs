@@ -157,7 +157,6 @@ namespace PIO.Repositories
 
 		public ICollection<Question> GetAllUnansweredQuestionsSortedByVoteCount()
 		{
-
 			var questions = _context.Questions
 				.Include(q => q.Answers)
 				.Include(q => q.Votes)
@@ -173,7 +172,6 @@ namespace PIO.Repositories
 
 		public ICollection<Question> GetAllUnansweredQuestionsSortedById()
 		{
-
 			var questions = _context.Questions
 				.Include(q => q.Answers)
 				.Include(q => q.Votes)
@@ -184,7 +182,6 @@ namespace PIO.Repositories
 						 orderby q.Id descending
 						 select q
 						 );
-
 			return query.ToList();
 		}
 

@@ -1,20 +1,23 @@
 ﻿@using PIO.Models.Domain
 @using PIO.ViewModels
 
-@model QuestionListsViewModel
-
-@{
-    ViewBag.Title = "LatestUnansweredQuestions";
-}
+@model HomeViewModel
 
 <div class="row">
     <h3>Нови неодговорени прашања</h3>
     <div class="row">
-        @foreach (var q in Model.AllLatestUnansweredQuestions)
+        @foreach (var q in Model.LatestUnansweredQuestions)
         {
             @Html.Partial("_QuestionListItem", q)
         }
     </div>
 </div>
 
-
+<div class="text-center">
+    @for (int i = 1; i <= Math.Ceiling(ViewBag.Items / (double)5); i++)
+    {
+        <ul class="pagination">
+            <li>@Html.ActionLink(@i.ToString(), "LatestUnansweredQuestions", "Home", new { page = @i, }, null)</li>
+        </ul>
+    }
+</div>
