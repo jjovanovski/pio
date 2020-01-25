@@ -1,0 +1,20 @@
+﻿@using PIO.Models.Domain
+@using PIO.ViewModels
+
+@model QuestionListsViewModel
+
+@{
+    ViewBag.Title = "PopularUnansweredQuestions";
+}
+
+<div class="row">
+    <h3>Популарни неодговорени прашања</h3>
+    <div class="row">
+        @foreach (var q in Model.AllPopularUnansweredQuestions)
+        {
+            @Html.Partial("_QuestionListItem", q)
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,18 @@
+﻿@using PIO.Models.Domain
+@using PIO.ViewModels
+
+@model QuestionListsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <h3>Најнови прашања</h3>
+    <div class="row">
+        @foreach (var q in Model.AllLatestQuestions)
+        {
+            @Html.Partial("_QuestionListItem", q)
+        }
+    </div>
+</div>
