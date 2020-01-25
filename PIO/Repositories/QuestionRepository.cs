@@ -141,6 +141,50 @@ namespace PIO.Repositories
 			return questions.SingleOrDefault(q => q.Id == questionId);
 		}
 
+		public ICollection<Question> GetAllQuestionsSortedById()
+		{
+			var questions = _context.Questions
+				.Include(q => q.Answers)
+				.Include(q => q.Votes)
+				.Include(q => q.AskedBy)
+				.Include(q => q.Category);
+			var query = (from q in questions
+						 orderby q.Id descending
+						 select q
+						 );
+			return query.ToList();
+		}
+
+		public ICollection<Question> GetAllUnansweredQuestionsSortedByVoteCount()
+		{
+			var questions = _context.Questions
+				.Include(q => q.Answers)
+				.Include(q => q.Votes)
+				.Include(q => q.AskedBy)
+				.Include(q => q.Category);
+			var query = (from q in questions
+						 where q.Answers.Count == 0
+						 orderby q.Votes.Count descending
+						 select q
+						 );
+			return query.ToList();
+		}
+
+		public ICollection<Question> GetAllUnansweredQuestionsSortedById()
+		{
+			var questions = _context.Questions
+				.Include(q => q.Answers)
+				.Include(q => q.Votes)
+				.Include(q => q.AskedBy)
+				.Include(q => q.Category); ;
+			var query = (from q in questions
+						 where q.Answers.Count == 0
+						 orderby q.Id descending
+						 select q
+						 );
+			return query.ToList();
+		}
+
         public void SaveQuestion(Question question)
         {
             _context.Entry(question).State = EntityState.Modified;

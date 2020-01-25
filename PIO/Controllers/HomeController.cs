@@ -42,5 +42,31 @@ namespace PIO.Controllers
             return View();
         }
 
+		public ActionResult LatestQuestions(int ?page)
+		{
+			var homeViewModel = new HomeViewModel();
+			homeViewModel.LatestQuestions = _questionService.GetLatestQuestions((page ?? 1),3);
+			ViewBag.Items = _questionService.GetAllLatestQuestions().Count;
+
+			return View(homeViewModel);
+		}
+
+		public ActionResult LatestUnansweredQuestions(int? page)
+		{
+			var homeViewModel = new HomeViewModel();
+			homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions((page ?? 1), 3);
+			ViewBag.Items = _questionService.GetAllLatestUnansweredQuestions().Count;
+
+			return View(homeViewModel);
+		}
+
+		public ActionResult PopularUnansweredQuestions(int? page)
+		{
+			var homeViewModel = new HomeViewModel();
+			homeViewModel.PopularUnansweredQuestions = _questionService.GetPopularUnansweredQuestion((page ?? 1), 3);
+			ViewBag.Items = _questionService.GetAllPopularUnansweredQuestion().Count;
+
+			return View(homeViewModel);
+		}
 	}
 }

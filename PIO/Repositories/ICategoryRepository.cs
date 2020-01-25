@@ -10,7 +10,6 @@ namespace PIO.Repositories
     {
         ICollection<Category> GetCategoryTree();
         ICollection<Category> GetAllCategories();
-
         Category GetCategory(int id);
 	}
 }

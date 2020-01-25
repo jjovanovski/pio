@@ -23,6 +23,12 @@ namespace PIO.Repositories
 
         Question GetQuestion(int questionId);
 
-		void SaveQuestion(Question question);
+        ICollection<Question> GetAllQuestionsSortedById();
+
+        ICollection<Question> GetAllUnansweredQuestionsSortedByVoteCount();
+
+        ICollection<Question> GetAllUnansweredQuestionsSortedById();
+
+        void SaveQuestion(Question question);
 	}
 }

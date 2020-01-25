@@ -1,6 +1,7 @@
 ﻿@using PIO.Models.Domain
 @using PIO.ViewModels
 
+
 @model CategoryViewModel
 
 @{
@@ -15,4 +16,13 @@
             @Html.Partial("_QuestionListItem", q)
         }
     </div>
+</div>
+
+<div class="text-center">
+    @for (int i = 1; i <= Math.Ceiling(Model.Questions.Count / (double)10); i++)
+    {
+        <ul class="pagination">
+            <li>@Html.ActionLink(@i.ToString(), "Details", "Category", new { page = @i }, null)</li>
+        </ul>
+    }
 </div>
