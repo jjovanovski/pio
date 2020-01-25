@@ -30,7 +30,7 @@ namespace PIO.Controllers.Api
             }
             else
             {
-                return Unauthorized();
+                return StatusCode(HttpStatusCode.Unauthorized);
             }
         }
 

@@ -17,6 +17,12 @@
                     button.removeClass("btn-danger");
                 }
                 button.siblings(".vote-count").html(response.VoteCount);
+            },
+            complete: function (xhr, textStatus) {
+                if (xhr.status == 401) {
+                    alert("Не сте најавени!");
+                    return;
+                }
             }
         });
     });
@@ -38,6 +44,12 @@
                     button.removeClass("btn-danger");
                 }
                 button.siblings(".vote-count").html(response.VoteCount);
+            },
+            complete: function (xhr, textStatus) {
+                if (xhr.status == 401) {
+                    alert("Не сте најавени!");
+                    return;
+                }
             }
         });
     });
