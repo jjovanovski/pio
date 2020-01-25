@@ -22,10 +22,10 @@ namespace PIO.Repositories
 		{
 			var numberOfRowsToSkip = (page - 1) * pageSize;
 
-			var answers = _context.Answers
-				.Include(a => a.Question)
-				.Include(a => a.AnsweredBy)
-				.Include(a => a.Votes); ;
+            var answers = _context.Answers
+                .Include(a => a.Question)
+                .Include(a => a.AnsweredBy)
+                .Include(a => a.Votes);
 			var query = (from a in answers
 						 where a.Question.Id == questionId
 						 orderby a.Votes.Count descending
@@ -43,7 +43,7 @@ namespace PIO.Repositories
 			var answers = _context.Answers
 				.Include(a => a.Question)
 				.Include(a => a.AnsweredBy)
-				.Include(a => a.Votes); ;
+				.Include(a => a.Votes);
 			var query = (from a in answers
 						 where a.AnsweredBy.Id == userId
 						 orderby a.Votes.Count descending
@@ -69,5 +69,24 @@ namespace PIO.Repositories
 			_context.SaveChanges();
 			return insertedAnswer;
 		}
-	}
+
+        public Answer GetAnswer(int answerId)
+        {
+            var answers = _context.Answers
+                .Include(a => a.Question)
+                .Include(a => a.AnsweredBy)
+                .Include(a => a.Votes);
+            var query = (from a in answers
+                         where a.Id == answerId
+                         select a);
+
+            return query.FirstOrDefault();
+        }
+
+        public void SaveAnswer(Answer answer)
+        {
+            _context.Entry(answer).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+    }
 }

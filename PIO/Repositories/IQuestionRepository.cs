@@ -21,12 +21,14 @@ namespace PIO.Repositories
 
         Question InsertQuestion(string title, string description, Category category, ApplicationUser user, DateTime dateCreated);
 
-		Question GetQuestion(int questionId);
+        Question GetQuestion(int questionId);
 
-		ICollection<Question> GetAllQuestionsSortedById();
+        ICollection<Question> GetAllQuestionsSortedById();
 
-		ICollection<Question> GetAllUnansweredQuestionsSortedByVoteCount();
+        ICollection<Question> GetAllUnansweredQuestionsSortedByVoteCount();
 
-		ICollection<Question> GetAllUnansweredQuestionsSortedById();
+        ICollection<Question> GetAllUnansweredQuestionsSortedById();
+
+        void SaveQuestion(Question question);
 	}
 }

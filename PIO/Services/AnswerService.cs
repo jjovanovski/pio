@@ -56,5 +56,45 @@ namespace PIO.Services
 
 			return _answerRepository.InsertAnswer(content, question, user, dateCreated);
 		}
-	}
+
+        public Answer GetAnswer(int answerId)
+        {
+            var answer = _answerRepository.GetAnswer(answerId);
+            if(answer == null)
+            {
+                throw new ArgumentException("Answer doesn't exist");
+            }
+
+            return answer;
+        }
+
+        public bool ToggleVote(string userId, int answerId)
+        {
+            var answer = _answerRepository.GetAnswer(answerId);
+            var user = _userRepository.GetUser(userId);
+
+            if (answer == null)
+            {
+                throw new ArgumentException("Answer doesn't exist");
+            }
+
+            if (user == null)
+            {
+                throw new ArgumentException("User doesn't exist");
+            }
+
+            if (answer.Votes.Contains(user))
+            {
+                answer.Votes.Remove(user);
+                _answerRepository.SaveAnswer(answer);
+                return false;
+            }
+            else
+            {
+                answer.Votes.Add(user);
+                _answerRepository.SaveAnswer(answer);
+                return true;
+            }
+        }
+    }
 }

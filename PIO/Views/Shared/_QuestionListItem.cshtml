@@ -1,13 +1,21 @@
 ﻿@using PIO.Models.Domain
+@using Microsoft.AspNet.Identity
 @model Question
 
 <div class="row align-items-center question-list-item">
     <div class="col-sm-2 text-center question-list-item-votes">
-        <div>
+        <div class="vote-count">
             @Model.Votes.Count
         </div>
-        <button class="btn btn-primary">Глас +</button>
-    </div>
+        @if (User.Identity.IsAuthenticated && Model.Votes.Any(u => u.Id == User.Identity.GetUserId()))
+        {
+            <button data-question-id="@Model.Id" class="btn btn-danger question-vote-btn">Глас -</button>
+        }
+        else
+        {
+            <button data-question-id="@Model.Id" class="btn btn-primary question-vote-btn">Глас +</button>
+        }
+        </div>
     <div class="col-sm-10" style="padding: 0">
         <div style="font-size: 11px">
                 @Html.ActionLink(Model.AskedBy.UserName, "Details","User", new { id = Model.AskedBy.Id }, null) прашува:

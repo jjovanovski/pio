@@ -185,5 +185,10 @@ namespace PIO.Repositories
 			return query.ToList();
 		}
 
+        public void SaveQuestion(Question question)
+        {
+            _context.Entry(question).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
 	}
 }
