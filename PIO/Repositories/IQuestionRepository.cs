@@ -21,6 +21,8 @@ namespace PIO.Repositories
 
         Question InsertQuestion(string title, string description, Category category, ApplicationUser user, DateTime dateCreated);
 
-		Question GetQuestion(int questionId);
+        Question GetQuestion(int questionId);
+
+		void SaveQuestion(Question question);
 	}
 }

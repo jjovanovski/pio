@@ -15,5 +15,9 @@ namespace PIO.Repositories
 
 		Answer InsertAnswer(string content,Question question, ApplicationUser user, DateTime dateCreated);
 
+        Answer GetAnswer(int answerId);
+
+        void SaveAnswer(Answer answer);
+
 	}
 }

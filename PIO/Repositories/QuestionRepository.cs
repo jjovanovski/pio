@@ -125,6 +125,7 @@ namespace PIO.Repositories
             _context.SaveChanges();
             return insertedQuestion;
         }
+
 		public Question GetQuestion(int questionId)
 		{
 			var questions = _context.Questions
@@ -139,5 +140,11 @@ namespace PIO.Repositories
 
 			return questions.SingleOrDefault(q => q.Id == questionId);
 		}
+
+        public void SaveQuestion(Question question)
+        {
+            _context.Entry(question).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
 	}
 }
