@@ -10,7 +10,7 @@
 <div class="row">
     <h3>Најнови прашања</h3>
     <div class="row">
-        @foreach(var q in Model.LatestQuestions)
+        @foreach (var q in Model.LatestQuestions)
         {
             @Html.Partial("_QuestionListItem", q)
         }

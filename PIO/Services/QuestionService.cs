@@ -118,5 +118,34 @@ namespace PIO.Services
 
             return _questionRepository.GetQuestionsByUserSortedById(userId, page, pageSize);
         }
+
+        public bool ToggleVote(string userId, int questionId)
+        {
+            var question = _questionRepository.GetQuestion(questionId);
+            var user = _userRepository.GetUser(userId);
+
+            if(question == null)
+            {
+                throw new ArgumentException("Question doesn't exist");
+            }
+
+            if(user == null)
+            {
+                throw new ArgumentException("User doesn't exist");
+            }
+
+            if(question.Votes.Contains(user))
+            {
+                question.Votes.Remove(user);
+                _questionRepository.SaveQuestion(question);
+                return false;
+            }
+            else
+            {
+                question.Votes.Add(user);
+                _questionRepository.SaveQuestion(question);
+                return true;
+            }
+        }
     }
 }
