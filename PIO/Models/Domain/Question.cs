@@ -24,7 +24,7 @@ namespace PIO.Models.Domain
 
         [Required]
         public DateTime DateCreated { get; set; }
-
+        
         [Required]
         public DateTime DateLastModified { get; set; }
 

@@ -50,7 +50,9 @@ namespace PIO.Controllers
         [Authorize]
         public ActionResult Add(Question question)
         {
-            /*if(!ModelState.IsValid)
+            question.DateCreated = DateTime.Now;
+            question.DateLastModified = DateTime.Now;
+            if(!ModelState.IsValid)
             {
                 var aqm = new AddQuestionViewModel
                 {
@@ -59,7 +61,7 @@ namespace PIO.Controllers
 
                 return View("Add", aqm);
                 
-            }*/
+            }
             _questionService.AddQuestion(question.Title, question.Description, question.Category.Id, User.Identity.GetUserId(), DateTime.Now);
             return RedirectToAction("Index", "Home");
         }
