@@ -54,4 +54,16 @@
         });
     });
 
+    $(".delete-btn").on("click", function () {
+        var button = $(this);
+        if (confirm("Are you sure?")) {
+            $.ajax({
+                url: "/api/answers/deleteanswer/" + button.attr("button-answer-id"),
+                method: "DELETE",
+                success: function () {
+                    button.parents(".question-list-item").remove();
+                }
+            });
+        }
+    });
 });

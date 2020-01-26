@@ -22,6 +22,10 @@
         </div>
         <div>
             <p class="answer-list-item-content">@Model.Content</p>
+            @if (Model.AnsweredBy.Id == User.Identity.GetUserId())
+            {
+            <button button-answer-id="@Model.Id" class="btn btn-link delete-btn">Delete</button>
+            }
         </div>
         <div>
             <span style="font-size: 11px; margin-left: 10px;">@Model.DateCreated</span>

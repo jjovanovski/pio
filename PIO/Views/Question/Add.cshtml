@@ -12,6 +12,7 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Question.Title, "Постави прашање:")
                 @Html.TextAreaFor(m => m.Question.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Question.Title)
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Question.Description, "Oпис на прашањето:")
