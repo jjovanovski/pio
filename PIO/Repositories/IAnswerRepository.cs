@@ -19,5 +19,7 @@ namespace PIO.Repositories
 
         void SaveAnswer(Answer answer);
 
+        void DeleteAnswer(Answer answer);
+
 	}
 }

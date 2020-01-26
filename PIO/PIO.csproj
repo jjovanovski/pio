@@ -187,6 +187,7 @@
     <Compile Include="Container.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnswerController.cs" />
+    <Compile Include="Controllers\Api\AnswersController.cs" />
     <Compile Include="Controllers\Api\VoteController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

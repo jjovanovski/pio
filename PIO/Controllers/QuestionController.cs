@@ -49,10 +49,19 @@ namespace PIO.Controllers
         [HttpPost]
         [Authorize]
         public ActionResult Add(Question question)
-        { 
+        {
+            /*if(!ModelState.IsValid)
+            {
+                var aqm = new AddQuestionViewModel
+                {
+                    Categories = _categoryService.GetAllCategories()
+                };
+
+                return View("Add", aqm);
+                
+            }*/
             _questionService.AddQuestion(question.Title, question.Description, question.Category.Id, User.Identity.GetUserId(), DateTime.Now);
             return RedirectToAction("Index", "Home");
-
         }
 
     }

@@ -88,5 +88,11 @@ namespace PIO.Repositories
             _context.Entry(answer).State = EntityState.Modified;
             _context.SaveChanges();
         }
+
+        public void DeleteAnswer(Answer answer)
+        {
+            _context.Answers.Remove(answer);
+            _context.SaveChanges();
+        }
     }
 }

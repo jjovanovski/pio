@@ -68,6 +68,12 @@ namespace PIO.Services
             return answer;
         }
 
+        public void DeleteAnswer(int answerId)
+        {
+            var answer = _answerRepository.GetAnswer(answerId);
+            _answerRepository.DeleteAnswer(answer);
+        }
+
         public bool ToggleVote(string userId, int answerId)
         {
             var answer = _answerRepository.GetAnswer(answerId);
