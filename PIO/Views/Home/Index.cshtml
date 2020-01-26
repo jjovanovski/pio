@@ -7,8 +7,15 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
-    <h3>Најнови прашања</h3>
+<div class="row" style="margin:4px;">
+    <div class="row">
+        <div class="col-md-8" style="font-size:26px">
+            Најнови прашања
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Види повеќе...", "LatestQuestions", "Home", null, new { style = "font-size:18px;float:right" })
+        </div>
+    </div>
     <div class="row">
         @foreach (var q in Model.LatestQuestions)
         {
@@ -17,8 +24,15 @@
     </div>
 </div>
 
-<div class="row">
-    <h3>Нови неодговорени прашања</h3>
+<div class="row" style="margin:4px">
+    <div class="row">
+        <div class="col-md-8" style="font-size:26px">
+            Нови неодговорени прашања
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Види повеќе...", "LatestUnansweredQuestions", "Home", null, new { style = "font-size:18px;float:right" })
+        </div>
+    </div>
     <div class="row">
         @foreach (var q in Model.LatestUnansweredQuestions)
         {
@@ -27,8 +41,15 @@
     </div>
 </div>
 
-<div class="row">
-    <h3>Популарни неодговорени прашања</h3>
+<div class="row" style="margin:4px">
+    <div class="row">
+        <div class="col-md-8" style="font-size:26px">
+            Популарни неодговорени прашања
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Види повеќе...", "PopularUnansweredQuestions", "Home", null, new { style = "font-size:18px;float:right" })
+        </div>
+    </div>
     <div class="row">
         @foreach (var q in Model.PopularUnansweredQuestions)
         {

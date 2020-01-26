@@ -119,22 +119,37 @@ namespace PIO.Services
             return _questionRepository.GetQuestionsByUserSortedById(userId, page, pageSize);
         }
 
+		public ICollection<Question> GetAllLatestQuestions()
+		{
+			return _questionRepository.GetAllQuestionsSortedById();
+		}
+
+		public ICollection<Question> GetAllLatestUnansweredQuestions()
+		{
+			return _questionRepository.GetAllUnansweredQuestionsSortedById();
+		}
+
+		public ICollection<Question> GetAllPopularUnansweredQuestion()
+		{
+			return _questionRepository.GetAllUnansweredQuestionsSortedByVoteCount();
+		}
+
         public bool ToggleVote(string userId, int questionId)
         {
             var question = _questionRepository.GetQuestion(questionId);
             var user = _userRepository.GetUser(userId);
 
-            if(question == null)
+            if (question == null)
             {
                 throw new ArgumentException("Question doesn't exist");
             }
 
-            if(user == null)
+            if (user == null)
             {
                 throw new ArgumentException("User doesn't exist");
             }
 
-            if(question.Votes.Contains(user))
+            if (question.Votes.Contains(user))
             {
                 question.Votes.Remove(user);
                 _questionRepository.SaveQuestion(question);

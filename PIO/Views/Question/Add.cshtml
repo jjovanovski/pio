@@ -5,29 +5,26 @@
     ViewBag.Title = "Add";
 }
 
-@using (Html.BeginForm("Add", "Question", FormMethod.Post))
-{
-    <div class="row" style="margin-top:10px">
-        <div class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(m => m.Question.Title, "Постави прашање:")
-                @Html.TextAreaFor(m => m.Question.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Question.Title)
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Question.Description, "Oпис на прашањето:")
-                @Html.TextAreaFor(m => m.Question.Description, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            <div class="form-group">
-                @Html.DropDownListFor(m => m.Question.Category.Id, new SelectList(Model.Categories, "Id", "Name"), "Select Category")
-                
-            </div>
-            <div class="form-group">
-                <span>@DateTime.Now</span>
-            </div>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Одговори</button>
-
-}
-
+<div class="container col-md-8" style="margin-top:20px">
+    @using (Html.BeginForm("Add", "Question", FormMethod.Post))
+    {
+        <form>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Question.Title, "Постави прашање:", new { style = "font-size:18px"})
+                    @Html.TextAreaFor(m => m.Question.Title,3,70,new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Question.Title)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Question.Description, "Oпис на прашањето:", new { style = "font-size:18px" })
+                    @Html.TextAreaFor(m => m.Question.Description,5,70, new { @class = "form-control" } )
+                </div>
+                <div class="form-group">
+                    @Html.DropDownListFor(m => m.Question.Category.Id, new SelectList(Model.Categories, "Id", "Name"), "Одбери категорија")
+                </div>
+                <div class="form-group">
+                    <span>@DateTime.Now</span>
+                </div>
+            <button type="submit" class="btn btn-primary">Прашај</button>
+        </form>
+    }
+</div>
