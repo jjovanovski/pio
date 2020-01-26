@@ -96,5 +96,105 @@ namespace PIO.Tests.Controllers
 
             Assert.AreSame(questionDummy, Container.QuestionService.AddQuestion("", "", 1, "", DateTime.Now));
         }
+
+        [TestMethod]
+        public void GetQuestionThrowsArgumentExceptionWhenUserDoesntExist()
+        {
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+                .Returns<Question>(null);
+
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                Container.QuestionService.GetQuestion(1);
+            });
+        }
+        [TestMethod]
+        public void GetQuestionReturnsQuestion()
+        {
+            var questionDummy = new Question();
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+               .Returns(questionDummy);
+
+            var returnedQuestion = Container.QuestionService.GetQuestion(1);
+            Assert.AreSame(questionDummy, returnedQuestion);
+        }
+
+        [TestMethod]
+        public void ToggleVoteThrowsArgumentExceptionWhenQuestionDoesntExist()
+        {
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+                .Returns<Question>(null);
+
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                Container.QuestionService.ToggleVote("", 1);
+            });
+        }
+
+        [TestMethod]
+        public void ToggleVoteThrowsArgumentExceptionWhenUserDoesntExist()
+        {
+            var questionDummy = new Question();
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+                .Returns(questionDummy);
+
+            _userRepositoryMock.Setup(u => u.GetUser(It.IsAny<string>()))
+                .Returns<ApplicationUser>(null);
+
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                Container.QuestionService.ToggleVote("", 1);
+            });
+        }
+
+        [TestMethod]
+        public void ToggleVoteReturnsFalseWhenQuestionVotesContainsUser()
+        {
+            var questionDummy = new Question();
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+                .Returns(questionDummy);
+
+            var userDummy = new ApplicationUser();
+            _userRepositoryMock.Setup(u => u.GetUser(It.IsAny<string>()))
+                .Returns(userDummy);
+            questionDummy.Votes = new List<ApplicationUser>();
+            questionDummy.Votes.Add(userDummy);
+
+            Assert.IsFalse(Container.QuestionService.ToggleVote("", 1));
+
+        }
+
+        [TestMethod]
+        public void ToggleVoteReturnsTrueWhenQuestionVotesNotContainsUser()
+        {
+            var questionDummy = new Question();
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+                .Returns(questionDummy);
+
+            var userDummy = new ApplicationUser();
+            _userRepositoryMock.Setup(u => u.GetUser(It.IsAny<string>()))
+                .Returns(userDummy);
+            questionDummy.Votes = new List<ApplicationUser>();
+
+            Assert.IsTrue(Container.QuestionService.ToggleVote("", 1));
+
+        }
+
+        [TestMethod]
+        public void ToggleVoteCallsSaveQuestion()
+        {
+            var questionDummy = new Question();
+            _questionRepositoryMock.Setup(q => q.GetQuestion(It.IsAny<int>()))
+                .Returns(questionDummy);
+
+            var userDummy = new ApplicationUser();
+            _userRepositoryMock.Setup(u => u.GetUser(It.IsAny<string>()))
+                .Returns(userDummy);
+            questionDummy.Votes = new List<ApplicationUser>();
+
+            Container.QuestionService.ToggleVote("", 1);
+            _questionRepositoryMock.Verify(q => q.SaveQuestion(questionDummy), Times.Once);
+
+        }
     }
 }
