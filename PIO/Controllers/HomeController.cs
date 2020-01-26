@@ -45,7 +45,7 @@ namespace PIO.Controllers
 		public ActionResult LatestQuestions(int ?page)
 		{
 			var homeViewModel = new HomeViewModel();
-			homeViewModel.LatestQuestions = _questionService.GetLatestQuestions((page ?? 1),3);
+			homeViewModel.LatestQuestions = _questionService.GetLatestQuestions((page ?? 1), 10);
 			ViewBag.Items = _questionService.GetAllLatestQuestions().Count;
 
 			return View(homeViewModel);
@@ -54,7 +54,7 @@ namespace PIO.Controllers
 		public ActionResult LatestUnansweredQuestions(int? page)
 		{
 			var homeViewModel = new HomeViewModel();
-			homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions((page ?? 1), 3);
+			homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions((page ?? 1), 10);
 			ViewBag.Items = _questionService.GetAllLatestUnansweredQuestions().Count;
 
 			return View(homeViewModel);
@@ -63,7 +63,7 @@ namespace PIO.Controllers
 		public ActionResult PopularUnansweredQuestions(int? page)
 		{
 			var homeViewModel = new HomeViewModel();
-			homeViewModel.PopularUnansweredQuestions = _questionService.GetPopularUnansweredQuestion((page ?? 1), 3);
+			homeViewModel.PopularUnansweredQuestions = _questionService.GetPopularUnansweredQuestion((page ?? 1), 10);
 			ViewBag.Items = _questionService.GetAllPopularUnansweredQuestion().Count;
 
 			return View(homeViewModel);
