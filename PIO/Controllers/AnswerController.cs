@@ -19,13 +19,15 @@ namespace PIO.Controllers
 			_answerService = Container.AnswerService;
 		}
 		
+        [Authorize]
 		public ActionResult Add()
         {
             return View();
         }
         
 		[HttpPost]
-		public ActionResult Add(Answer answer, int id)
+        [Authorize]
+        public ActionResult Add(Answer answer, int id)
 		{
 			int questionId = id;
 
