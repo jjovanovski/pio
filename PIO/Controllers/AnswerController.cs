@@ -29,10 +29,13 @@ namespace PIO.Controllers
         [Authorize]
         public ActionResult Add(Answer answer, int id)
 		{
-			int questionId = id;
+			if(!ModelState.IsValid)
+            {
+                return View("Add", answer);
+            }
 
-			_answerService.AddAnswer(answer.Content, questionId, User.Identity.GetUserId(), DateTime.Now);
-			return RedirectToAction("Index", "Question", new { id = questionId });
+			_answerService.AddAnswer(answer.Content, id, User.Identity.GetUserId(), DateTime.Now);
+			return RedirectToAction("Index", "Question", new { id = id });
 	
 		}
 	}
