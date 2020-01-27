@@ -224,9 +224,13 @@
     <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.Designer.cs">
       <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001141342276_AnswerIdColumn.cs" />
-    <Compile Include="Migrations\202001141342276_AnswerIdColumn.Designer.cs">
-      <DependentUpon>202001141342276_AnswerIdColumn.cs</DependentUpon>
+    <Compile Include="Migrations\202001272046248_CategoryId.cs" />
+    <Compile Include="Migrations\202001272046248_CategoryId.Designer.cs">
+      <DependentUpon>202001272046248_CategoryId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001272047125_CategoryId1.cs" />
+    <Compile Include="Migrations\202001272047125_CategoryId1.Designer.cs">
+      <DependentUpon>202001272047125_CategoryId1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -363,6 +367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001061747208_FixedVoteColumnNames.resx">
       <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001272046248_CategoryId.resx">
+      <DependentUpon>202001272046248_CategoryId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001272047125_CategoryId1.resx">
+      <DependentUpon>202001272047125_CategoryId1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

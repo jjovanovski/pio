@@ -3,7 +3,7 @@ namespace PIO.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AnswerIdColumn : DbMigration
+    public partial class CategoryIdForeignKey21 : DbMigration
     {
         public override void Up()
         {

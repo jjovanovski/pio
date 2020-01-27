@@ -7,13 +7,13 @@ namespace PIO.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AnswerIdColumn : IMigrationMetadata
+    public sealed partial class RemovedQuestionDateRequirements : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AnswerIdColumn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedQuestionDateRequirements));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001141342276_AnswerIdColumn"; }
+            get { return "202001272000491_Removed-Question-Date-Requirements"; }
         }
         
         string IMigrationMetadata.Source

@@ -16,6 +16,7 @@ namespace PIO.Models.Domain
 
         public string Description { get; set; }
 
+        public int Category_Id { get; set; }
         public Category Category { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
