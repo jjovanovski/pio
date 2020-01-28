@@ -20,7 +20,7 @@
             },
             complete: function (xhr, textStatus) {
                 if (xhr.status == 401) {
-                    alert("Не сте најавени!");
+                    bootbox.alert("Не сте најавени");
                     return;
                 }
             }
@@ -47,23 +47,27 @@
             },
             complete: function (xhr, textStatus) {
                 if (xhr.status == 401) {
-                    alert("Не сте најавени!");
+                    bootbox.alert("Не сте најавени");
                     return;
                 }
             }
         });
     });
 
+    // answer deleting
     $(".delete-btn").on("click", function () {
         var button = $(this);
-        if (confirm("Are you sure?")) {
-            $.ajax({
-                url: "/api/answers/deleteanswer/" + button.attr("button-answer-id"),
-                method: "DELETE",
-                success: function () {
-                    button.parents(".question-list-item").remove();
-                }
-            });
-        }
+
+        bootbox.confirm("Дали сте сигурни дека сакате да ги избришете одговорот?", function (result) {
+            if (result) {
+                $.ajax({
+                    url: "/api/answers/deleteanswer/" + button.attr("button-answer-id"),
+                    method: "DELETE",
+                    success: function () {
+                        button.parents(".question-list-item").remove();
+                    }
+                });
+            }
+        });
     });
 });
