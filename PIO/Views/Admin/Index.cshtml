@@ -1,0 +1,38 @@
+﻿@using PIO.Models.Domain
+@{
+    ViewBag.Title = "Admin panel";
+}
+
+<h2>Категории:</h2>
+
+@Html.ActionLink("Додај категорија", "AddCategory")
+<br />
+
+<table class="table">
+    <tr>
+        <th>Име:</th>
+        <th>Надкатегорија:</th>
+        <th>Избриши:</th>
+    </tr>
+    @foreach (Category category in ViewBag.Categories)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(category.Name, "EditCategory", new { id = category.Id })
+            </td>
+            <td>
+                @if(category.ParentCategory != null)
+                {
+                    <span>@category.ParentCategory.Name</span>
+                }
+                else
+                {
+                    <span>/</span>
+                }
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    }
+</table>

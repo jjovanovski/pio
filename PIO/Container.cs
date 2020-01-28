@@ -10,7 +10,7 @@ namespace PIO
 {
     public class Container
     {
-        private static ApplicationDbContext _dbContext;
+        public static ApplicationDbContext DbContext;
 
         public static IQuestionRepository QuestionRepository { get; set; }
         public static IAnswerRepository AnswerRepository { get; set; }
@@ -24,12 +24,12 @@ namespace PIO
 
         public static void Init()
         {
-            _dbContext = new ApplicationDbContext();
+            DbContext = new ApplicationDbContext();
 
-            QuestionRepository = new QuestionRepository(_dbContext);
-            AnswerRepository = new AnswerRepository(_dbContext);
-            CategoryRepository = new CategoryRepository(_dbContext);
-            UserRepository = new UserRepository(_dbContext);
+            QuestionRepository = new QuestionRepository(DbContext);
+            AnswerRepository = new AnswerRepository(DbContext);
+            CategoryRepository = new CategoryRepository(DbContext);
+            UserRepository = new UserRepository(DbContext);
 
             QuestionService = new QuestionService(QuestionRepository, CategoryRepository, UserRepository);
             AnswerService = new AnswerService(AnswerRepository, QuestionRepository, UserRepository);
