@@ -12,11 +12,14 @@ namespace PIO.Models.Domain
 
         [Required]
         [StringLength(255, MinimumLength = 8, ErrorMessage = "Question title must be between 8 and 255 characters long.")]
+        [Display(Name = "Наслов")]
         public string Title { get; set; }
 
+        [Display(Name = "Опис")]
         public string Description { get; set; }
 
         [Required]
+        [Display(Name = "Категорија")]
         public Category Category { get; set; }
 
         public ICollection<Answer> Answers { get; set; }

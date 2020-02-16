@@ -51,8 +51,8 @@ namespace PIO.Controllers
         public ActionResult Add(Question question, int categoryId)
         {
             question.Category = Container.DbContext.Categories.FirstOrDefault(c => c.Id == categoryId);
+            ModelState["question.Category"].Errors.Clear();
 
-            ModelState.Clear();
             if(!TryValidateModel(question))
             {
                 var aqm = new AddQuestionViewModel
