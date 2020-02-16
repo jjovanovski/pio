@@ -119,20 +119,15 @@ namespace PIO.Services
             return _questionRepository.GetQuestionsByUserSortedById(userId, page, pageSize);
         }
 
-		public ICollection<Question> GetAllLatestQuestions()
-		{
-			return _questionRepository.GetAllQuestionsSortedById();
-		}
+		public int GetAllQuestionsCount()
+        {
+            return _questionRepository.GetAllQuestionsCount();
+        }
 
-		public ICollection<Question> GetAllLatestUnansweredQuestions()
-		{
-			return _questionRepository.GetAllUnansweredQuestionsSortedById();
-		}
-
-		public ICollection<Question> GetAllPopularUnansweredQuestion()
-		{
-			return _questionRepository.GetAllUnansweredQuestionsSortedByVoteCount();
-		}
+        public int GetUnansweredQuestionsCount()
+        {
+            return _questionRepository.GetUnansweredQuestionsCount();
+        }
 
         public bool ToggleVote(string userId, int questionId)
         {

@@ -42,31 +42,34 @@ namespace PIO.Controllers
             return View();
         }
 
-		public ActionResult LatestQuestions(int ?page)
+		public ActionResult LatestQuestions(int page = 1, int pageSize = 5)
 		{
 			var homeViewModel = new HomeViewModel();
-			homeViewModel.LatestQuestions = _questionService.GetLatestQuestions((page ?? 1), 10);
-			ViewBag.Items = _questionService.GetAllLatestQuestions().Count;
+			homeViewModel.LatestQuestions = _questionService.GetLatestQuestions(page, 5);
+            ViewBag.Items = _questionService.GetAllQuestionsCount();
+            ViewBag.PageSize = pageSize;
 
 			return View(homeViewModel);
 		}
 
-		public ActionResult LatestUnansweredQuestions(int? page)
+		public ActionResult LatestUnansweredQuestions(int page = 1, int pageSize = 5)
 		{
 			var homeViewModel = new HomeViewModel();
-			homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions((page ?? 1), 10);
-			ViewBag.Items = _questionService.GetAllLatestUnansweredQuestions().Count;
+			homeViewModel.LatestUnansweredQuestions = _questionService.GetLatestUnansweredQuestions(page, pageSize);
+			ViewBag.Items = _questionService.GetUnansweredQuestionsCount();
+            ViewBag.PageSize = pageSize;
 
-			return View(homeViewModel);
+            return View(homeViewModel);
 		}
 
-		public ActionResult PopularUnansweredQuestions(int? page)
+		public ActionResult PopularUnansweredQuestions(int page = 1, int pageSize = 5)
 		{
 			var homeViewModel = new HomeViewModel();
-			homeViewModel.PopularUnansweredQuestions = _questionService.GetPopularUnansweredQuestion((page ?? 1), 10);
-			ViewBag.Items = _questionService.GetAllPopularUnansweredQuestion().Count;
+			homeViewModel.PopularUnansweredQuestions = _questionService.GetPopularUnansweredQuestion(page, pageSize);
+			ViewBag.Items = _questionService.GetUnansweredQuestionsCount();
+            ViewBag.PageSize = pageSize;
 
-			return View(homeViewModel);
+            return View(homeViewModel);
 		}
 	}
 }
