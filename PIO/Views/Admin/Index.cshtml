@@ -9,11 +9,13 @@
 <br />
 
 <table class="table">
-    <tr>
-        <th>Име:</th>
-        <th>Надкатегорија:</th>
-        <th>Избриши:</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>Име:</th>
+            <th>Надкатегорија:</th>
+            <th>Избриши:</th>
+        </tr>
+    </thead>
     @foreach (Category category in ViewBag.Categories)
     {
         <tr>
@@ -36,3 +38,12 @@
         </tr>
     }
 </table>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".table").DataTable();
+        });
+    </script>
+}

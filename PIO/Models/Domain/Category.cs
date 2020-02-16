@@ -13,8 +13,10 @@ namespace PIO.Models.Domain
 
         [Required]
         [StringLength(255, MinimumLength = 2, ErrorMessage = "Category name must be between 2 and 255 characters long.")]
+        [Display(Name = "Име")]
         public string Name { get; set; }
 
+        [Display(Name = "Надкатегорија")]
         public Category ParentCategory { get; set; }
 
         public ICollection<Category> Subcategories { get; set; }
