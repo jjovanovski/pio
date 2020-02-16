@@ -14,7 +14,7 @@
 </div>
 
 <div class="text-center">
-    @for (int i = 1; i <= Math.Ceiling(ViewBag.Items / (double)5); i++)
+    @for (int i = 1; i <= Math.Ceiling(ViewBag.Items / (double)ViewBag.PageSize); i++)
     {
         <ul class="pagination">
             <li class="page-item">@Html.ActionLink(@i.ToString(), "LatestQuestions", "Home", new { page = @i }, null)</li>
