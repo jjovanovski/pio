@@ -48,9 +48,12 @@ namespace PIO.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult Add(Question question)
+        public ActionResult Add(Question question, int categoryId)
         {
-            if(!ModelState.IsValid)
+            question.Category = Container.DbContext.Categories.FirstOrDefault(c => c.Id == categoryId);
+
+            ModelState.Clear();
+            if(!TryValidateModel(question))
             {
                 var aqm = new AddQuestionViewModel
                 {
@@ -61,7 +64,7 @@ namespace PIO.Controllers
                 return View("Add", aqm);
                 
             }
-            _questionService.AddQuestion(question.Title, question.Description, question.Category_Id, User.Identity.GetUserId(), DateTime.Now);
+            _questionService.AddQuestion(question.Title, question.Description, categoryId, User.Identity.GetUserId(), DateTime.Now);
             return RedirectToAction("Index", "Home");
         }
 

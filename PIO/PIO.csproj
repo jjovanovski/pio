@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\Api\AnswersController.cs" />
+    <Compile Include="Controllers\Api\CategoryController.cs" />
     <Compile Include="Controllers\Api\VoteController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -201,37 +202,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912251905059_first-migration.cs" />
-    <Compile Include="Migrations\201912251905059_first-migration.Designer.cs">
-      <DependentUpon>201912251905059_first-migration.cs</DependentUpon>
+    <Compile Include="Migrations\202002161847018_Initial.cs" />
+    <Compile Include="Migrations\202002161847018_Initial.Designer.cs">
+      <DependentUpon>202002161847018_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912271133141_ModelsPart1.cs" />
-    <Compile Include="Migrations\201912271133141_ModelsPart1.Designer.cs">
-      <DependentUpon>201912271133141_ModelsPart1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912271138503_ModelsPart2.cs" />
-    <Compile Include="Migrations\201912271138503_ModelsPart2.Designer.cs">
-      <DependentUpon>201912271138503_ModelsPart2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912271234507_ModelsPart3.cs" />
-    <Compile Include="Migrations\201912271234507_ModelsPart3.Designer.cs">
-      <DependentUpon>201912271234507_ModelsPart3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912282233380_ModelsPart4.cs" />
-    <Compile Include="Migrations\201912282233380_ModelsPart4.Designer.cs">
-      <DependentUpon>201912282233380_ModelsPart4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.cs" />
-    <Compile Include="Migrations\202001061747208_FixedVoteColumnNames.Designer.cs">
-      <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001272046248_CategoryId.cs" />
-    <Compile Include="Migrations\202001272046248_CategoryId.Designer.cs">
-      <DependentUpon>202001272046248_CategoryId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001272047125_CategoryId1.cs" />
-    <Compile Include="Migrations\202001272047125_CategoryId1.Designer.cs">
-      <DependentUpon>202001272047125_CategoryId1.cs</DependentUpon>
+    <Compile Include="Migrations\202002161855257_Migration1.cs" />
+    <Compile Include="Migrations\202002161855257_Migration1.Designer.cs">
+      <DependentUpon>202002161855257_Migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -592,29 +569,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912251905059_first-migration.resx">
-      <DependentUpon>201912251905059_first-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002161847018_Initial.resx">
+      <DependentUpon>202002161847018_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912271133141_ModelsPart1.resx">
-      <DependentUpon>201912271133141_ModelsPart1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912271138503_ModelsPart2.resx">
-      <DependentUpon>201912271138503_ModelsPart2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912271234507_ModelsPart3.resx">
-      <DependentUpon>201912271234507_ModelsPart3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912282233380_ModelsPart4.resx">
-      <DependentUpon>201912282233380_ModelsPart4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001061747208_FixedVoteColumnNames.resx">
-      <DependentUpon>202001061747208_FixedVoteColumnNames.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001272046248_CategoryId.resx">
-      <DependentUpon>202001272046248_CategoryId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001272047125_CategoryId1.resx">
-      <DependentUpon>202001272047125_CategoryId1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002161855257_Migration1.resx">
+      <DependentUpon>202002161855257_Migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

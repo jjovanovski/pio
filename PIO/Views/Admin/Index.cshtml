@@ -34,7 +34,7 @@
                 }
             </td>
             <td>
-
+                <button data-category-id="@category.Id" class="delete-category btn btn-danger">X</button>
             </td>
         </tr>
     }
@@ -45,6 +45,22 @@
     <script>
         $(document).ready(function () {
             $(".table").DataTable();
+
+            $(".table .delete-category").on("click", function () {
+                let button = $(this);
+
+                bootbox.confirm("Дали сте сигурни дека сакате да ја избришете категоријата?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/category/delete/" + button.attr("data-category-id"),
+                            method: "DELETE",
+                            success: function (response) {
+                                location.reload();
+                            }
+                        });
+                    }
+                });
+            });
         });
     </script>
 }

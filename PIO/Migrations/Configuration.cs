@@ -14,7 +14,7 @@
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(PIO.Models.ApplicationDbContext context)
+        /*protected override void Seed(PIO.Models.ApplicationDbContext context)
         {
             SeedCategories(context);
             SeedQuestions(context);
@@ -104,6 +104,6 @@
         private void SeedAnswers(ApplicationDbContext context)
         {
 
-        }
+        }*/
     }
 }
